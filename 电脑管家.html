@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.5.0.min .js"></script>
+    <style>
+        * {
+            padding: 0%;
+            margin: 0%;
+        }
+        ul,li {
+            list-style: none;
+        }
+       
+        .header {
+            width: 100%;
+            height: 70px;
+            background: white;
+            position:relative;
+            z-index: 1;
+        }
+        .header>img {
+             margin-left: 140px;
+             margin-top:15px;
+             overflow: hidden;  
+        }
+
+        .header>ul {
+            width: 1000px;
+            height: 70px;
+            position: absolute;
+            top: 0px;
+            left:390px;
+            /* float: right; */
+            
+        }
+        
+        
+        .header>ul>li {
+            width: 120px;
+            height:70px ;
+            border-left: 1px solid gray;
+            border-right: 1px solid gray;
+            float: left;
+            line-height:70px ;
+            text-align:center;
+            padding: 0px 5px 0px 5px;
+            font-size: 18px;
+            
+        }
+
+        .header>ul>li>a {
+            text-decoration: none;
+            color:#333333;
+        }
+        .header>ul>li>ul>li {
+            width: 120px;
+            height: 30px;
+            line-height:30px ;
+            text-align:center;
+            /* background: skyblue; */
+        }
+        .header >a{
+            
+           text-decoration: none;
+           position: absolute;
+           top:25px;
+           right: 120px;
+           font-size: 16px;
+           color: #2771fa;
+        }
+        .header>a:hover{
+            text-decoration: underline;
+        }
+
+        .header>ul>li:nth-child(2)>div{
+            width: 660px;
+            height: 270px;
+             background:white; 
+            float: left;
+            display: none;
+        }
+
+        .header>ul>li:nth-child(2)>div>ul {
+            float: left;
+            width: 130px;
+            height: 40px;
+            font-size: 14px;
+        }
+        .header>ul>li:nth-child(2)>div>ul>li {
+           
+            width: 130px;
+            height: 30px;
+            line-height:30px ;
+            text-align:center;
+            color: gray;
+
+        }
+        .header>ul>li:hover>ul {
+            display: block;
+             right : 500px;
+             
+             background:white
+            
+        }
+        .header>ul>li:hover>div {
+            display: block;   
+        }
+        .header>ul>li:hover>a {
+            color: #2771fa;
+        }
+        .header>ul>li:hover>a>img {
+            transform: rotate(180deg);
+            transition: all 1s ;
+        }
+
+        .header>ul>li>ul {
+            display: none;
+            font-size: 14px;
+            color: gray;
+           
+        }
+        .header>ul>li>ul>li:hover {
+            color:gray;
+        }
+       
+        .version {
+            width: 326px;
+            height: 48px;
+           
+            position: absolute;
+            top: 11px;
+            right: 100px;
+        }
+        .version> a{
+            width: 48px;
+            height: 48px;
+            display: block;
+            float: left;
+            margin-left: 10px;
+            background: white ;
+            background-image: url(https://guanjia.qq.com/assets/images/main/ic_qiye.png) ;
+            background-position: 0px 0px;
+            /* background-size: 100%; */
+        }
+        .version> a:nth-child(2) {
+            background-image:url(https://pc1.gtimg.com/guanjia/images/7a/49/7a49a6d90212a5a22c6bf729bd090741.png)  ;
+            background-position: 0px 0px;
+        }
+        .version> a:nth-child(3) {
+            background-image:url(https://guanjia.qq.com/assets/images/main/ic_block.png)  ;
+            background-position: -46px 0px;
+ 
+        }
+
+
+        .show{
+				width:1920px;
+				height:543px;
+				
+				overflow: hidden;
+				position: relative;
+			}
+			.show>.img{
+				width:1920px;
+                height: 543px;
+				position: relative;
+			}
+			.show>.img>.pic{
+				width:1920px;
+				height:543px;
+				list-style: none;
+				position: absolute;
+                top: 0px;
+                left: 0px;
+			}
+			.show>.img>.pic>img{
+				width:1920px;
+				height:543px;
+			}
+			.show>.piont{
+				background:rgba(255,255,255,0.8);
+				position: absolute;
+				bottom:30px;
+				left:40%;
+				transform: translate(-50%,0px);
+				border-radius: 20px;
+				padding:5px 5px;
+			}
+			.show>.piont>.nav{
+				width:8px;
+				height:8px;
+				background:red;
+				list-style: none;
+				float: left;
+				border-radius: 50%;
+				margin-right:5px;
+			} 
+            .download {
+                width: 240px;
+                height: 70px;
+             
+                position: absolute;
+                left: 50%;
+                top: 65%;
+                z-index:99;
+                background-image:url(https://guanjia.qq.com/assets/images/main/banner_download.png);
+            }
+            .download:hover {
+                background-image:url(https://guanjia.qq.com/assets/images/main/banner_download.png);
+                background-position: 0px 75px;
+            } 
+            .download-list {
+                width: 579px;
+                height: 30px;
+                position: absolute;
+                left: 50%;
+                top: 80%;
+                z-index:99;
+                font-size: 14px;
+                color: white;
+            }
+            .download-list span>a{
+                color: white;
+            }
+            .three {
+                width: 1200px;
+                height: 42px;
+                /* background: skyblue; */
+                position: absolute;
+                left: 160px;
+                top: 625px;
+            }
+            .three>a {
+                display: block;
+                float: left;
+                margin-right:62px;
+            }
+            .four {
+                /* width: 1200px; */
+                height: 60px;
+                line-height: 12px;
+                text-align: center;
+                font-size: 12px;
+                /* color: gray; */
+                margin-left: 159px;
+                position: absolute;
+                left: 133px;
+                top: 668px;
+            }
+            .four>.line {
+                display:inline-block;
+                width: 300px;
+                border-top: 1px solid #ccc;
+            }
+            .four>.txt {
+                color: #686868;
+                vertical-align: -27%;
+                margin: 0px 40px 0px 40px;
+            }
+            .block {
+                width: 1200px;
+                height: 405px;
+               border: 1px solid gray;
+                position: absolute;
+                top: 700px;
+                left: 160px;
+            }
+            .block>div {
+                width: 299px;
+                height: 405px;
+                /* background: skyblue; */
+                border-right: 1px solid gray;
+                float: left; 
+                position: relative;
+            }
+            .block>div>div {
+                font-size: 18px;
+                width: 299px;
+                height: 58px;
+                line-height: 58px;
+                text-align: center;
+                color: #2771fa;
+            }
+            .block>div>img {
+                margin-left:20px ;
+            }
+
+            .block>div>p {
+                display: block;
+                width: 260px;
+                height: 31px;
+                line-height: 31px;
+                text-align: center;
+                font-size: 14px;
+                color:white;
+                background-color: rgba(0,0,0,0.3);
+                position: absolute;
+                top:196px ;
+                left: 18px;
+            }
+            .block>div>ul {
+                width: 260px;
+                height: 165px;
+                /* background: skyblue; */
+                margin-left:18px ;
+                position: relative;
+            }
+            .block>div>ul>li {
+                width: 260px;
+                height: 30px;
+                
+                line-height: 30px;
+               overflow: hidden;
+               text-overflow: ellipsis;
+                white-space: nowrap;
+                font-size: 14px;
+                color: gray;
+                text-overflow: ellipsis;
+               
+            }
+            .block>div>ul>li:hover{
+                text-decoration: underline;
+            }
+            .block>div>ul >.bottom {
+                width: 77px;
+                height: 14px;
+                line-height: 14px;
+                text-align: center;
+               
+                position: absolute;
+                right: 0px;
+                bottom: 10px;
+            }
+            
+            .func-title {
+                width: 1200px;
+                height: 56px;
+                font-size: 18px;
+                color: #2771fa;
+               
+                line-height: 56px;
+                position: absolute;
+                left: 160px;
+                bottom: -500px;
+                border-left: 1px solid #2771fa;
+                padding-left: 20px;
+            }
+            .func-list {
+                width: 1209px;
+                height: 392px;
+                /* background: skyblue; */
+                border-top: 1px solid gray;
+               
+                position: absolute;
+                left: 160px;
+                bottom: -900px;
+            }
+            .func-list >div {
+                width: 392px;
+                height: 159px;
+                bottom:0 ;
+                float: left;
+                margin: 0 9px 0 2px;
+                position: relative;
+            }
+            .func-list >div >img {
+                width: 83px;
+                height: 84px;
+                position: absolute;
+                top: 38px;
+                left: 30px;
+            }
+            .func-list >div>.func-name {
+                width: 157px;
+                height: 16px;
+                color: black;
+                font-size: 16px;
+                position: absolute;
+                top: 38px;
+                left: 170px;
+
+            }
+            .func-list >div>.func-desc {
+                width: 157px;
+                height: 45px;
+                color: gray;
+                font-size: 12px;
+                position: absolute;
+                top: 80px;
+                left: 170px;
+            } 
+
+            .func-titletwo {
+                width: 1200px;
+                height: 56px;
+                font-size: 18px;
+                color: #2771fa;
+               
+                line-height: 56px;
+                position: absolute;
+                left: 160px;
+                bottom: -910px;
+                border-left: 1px solid #2771fa;
+                padding-left: 20px;
+                }
+            .manage-car {
+                width: 1200px;
+                height: 248px;
+                /* background: skyblue; */
+                border-top: 1px solid gray;
+                position: absolute;
+                left: 160px;
+                bottom: -1170px;
+            }  
+            .manage-car >div {
+                width: 186px;
+                height: 228px;
+              
+                float: left;
+                margin-top: 10px ;
+                margin-right: 13.8px;
+                position: relative;
+            }
+            .manage-car >div>img {
+                width: 83px;
+                height: 84px;
+                position: absolute;
+                top: 50px;
+                left: 51px;
+            }
+            .manage-car >div>.manage-name {
+                width: 186px;
+                height: 16px;
+                font-size: 16px;
+                color: black;
+                position: absolute;
+                top: 155px;
+                left: 60px;
+            }
+            .manage-car >div>.manage-desc {
+                width: 186px;
+                height: 30px;
+                font-size: 12px;
+                color: gray;
+                line-height: 30px;
+                text-align: center;
+                position: absolute;
+                top: 190px;
+                left: 0px;
+            }
+
+            .news {
+                width: 1202px;
+                height: 163px;
+                border:solid #eaeaea 1px;
+                position: absolute;
+                top: 1950px;
+                left: 160px;
+                
+            }
+            .news>.title {
+                width: 1202px;
+                height: 56px;
+                font-size: 18px;
+                color: #2771fa;
+                line-height: 56px;
+                padding-left: 20px;
+                box-sizing: border-box;
+                border-bottom:solid #eaeaea 1px ;
+                position: absolute;
+                top: 0px;
+                left: 0px;
+            }
+            .news>.sortable {
+                position: absolute;
+                top: 80px;
+                left: 30px;
+            }
+            .news>.sortable>a {
+                width: 252px;
+                height: 19px;
+                color: black;
+                font-size: 14px;
+                margin-bottom: 10px;
+                text-decoration: none;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                float: left;   
+            }
+            .news>.sortable>a:hover {
+                text-decoration: underline;
+            }
+            .main-gray {
+                width: 1663px;
+                height: 181px;
+                background:#f6f6f6;
+                position: absolute;
+                top: 2230px;
+                left: 160px;
+                
+            }
+            .main-gray>.hzhb {
+                width: 1270px;
+                height: 30px;
+                /* background: skyblue; */
+                margin-top: 30px ;
+              
+            }
+            
+            .main-gray>.hzhb>ul >li {
+                float: left;
+                margin-right: 12px;
+            }
+            .main-gray>.hzhb>ul>a {
+                display: block;
+                width: 81px;
+                height: 19px;
+                color: #2871d5;
+                font-size: 14px;
+                line-height: 19px;
+                float: left;
+                margin-top: 5px;
+                text-decoration: none;
+            }
+
+           .main-gray> .link >ul {
+                width: 1206px;
+                height: 46px;
+                
+                position: absolute;
+                top:70px;
+                left:70px
+            }
+            .main-gray> .link >ul>li {
+                float: left;
+                color: gray;
+                font-size: 14px;
+                margin-right: 20px;
+            }
+            .main-gray> .link >ul>li:hover {
+                text-decoration: underline;
+            }
+
+            .main-gray>.footer>p {
+                width: 1204px;
+                height: 21px;
+                
+                line-height: 21px;
+                text-align: center;
+                
+                font-size: 12px;
+                position: absolute;
+                top: 140px;
+                left: 0px;
+            }
+            .main-gray>.footer>p>a{
+                text-decoration: none;
+                color: gray;
+            }
+            .main-gray>.footer>p>a:hover{
+                text-decoration: underline;
+            }
+            .main-gray>.footer>.copyright {
+                margin-top: 15px;
+                color: gray;
+            }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="https://guanjia.qq.com/assets/images/main/logo_2.png" width="190px" height="39px" alt="">
+        <ul>
+            <li style="width: 70px; height: 70px; border-top: 2px solid #2771fa;"><a href="">首页</a> </li>
+            <li ><a href="">产品介绍 <img class="Triangle" width="12px" height="12px" src="img/下三角形.png" alt=""></a>
+               <div>
+                <ul class="product">
+                    <li style="color: black;font-size: 16px;">安全防护</li>
+                    <li>首页体检</li>
+                    <li>主动防御</li>
+                    <li>病毒查杀</li>
+                    <li>漏洞修复</li>
+                    <li>勒索病毒防御</li>
+                    <li>系统急救箱</li>
+                    <li>帐号保护</li>
+                    <li>企鹅守护</li>
+                </ul>
+                <ul>
+                    <li style="color: black;font-size: 16px;">清理加速</li>
+                    <li>垃圾清理</li>
+                    <li>电脑加速</li>
+                    <li>系统盘瘦身</li>
+                    <li>小火箭加速</li>
+                    <li>等级加速</li>
+                </ul>
+                <ul>
+                    <li style="color: black;font-size: 16px;">软件管理</li>
+                    <li>权限雷达</li>
+                    <li>软件下载</li>
+                    <li>软件卸载</li>
+                    <li>工具宝库</li>
+                </ul>
+                <ul>
+                    <li style="color: black;font-size: 16px;">游戏助手</li>
+                    <li>游戏加速</li>
+                    <li>手游助手</li>
+                    <li>网游加速器</li>
+                    
+                </ul>
+                <ul>
+                    <li style="color: black;font-size: 16px;">办公助手</li>
+                    <li>桌面整理</li>
+                    <li>魔镜壁纸</li>
+                    <li>最近文档</li>
+                </ul>
+            </div>
+            </li>
+            <li><a href="">安全咨询<img  class="Triangle" width="12px" height="12px" src="img/下三角形.png" alt=""></a>
+                <ul class="product">
+                    <li>安全热点</li>
+                    <li>安全专题</li>
+                    <li>管家大事记</li>
+                    <li>联合实验室</li>
+                </ul>
+            </li>
+            <li><a href="">在线安全<img class="Triangle" width="12px" height="12px" src="img/下三角形.png" alt=""></a>
+                <ul class="broadcast">
+                    <li>安全工具</li>
+                    <li>电脑诊所</li>
+                    <li>申诉举报</li>
+                    <li>诈骗信息查询</li>
+                    <li>网站安全检测</li>
+                    <li>密码安全检测</li>
+                    <li>帐号安全查询</li>
+                </ul>
+            </li>
+            <li><a href="">活动中心<img class="Triangle" width="12px" height="12px" src="img/下三角形.png" alt=""></a>
+               <ul class="settlement">               
+                   <li>管家特权</li>
+                   <li>兑换礼包</li>
+                   <li>赚安全金币 </li>
+                   <li>专题活动</li>
+               </ul>
+            </li>
+            <li style="width: 70px; height: 70px; "><a href="">论坛</a> </li>
+            
+            
+        </ul>
+        <a href="">登录</a>
+        <div class="version">
+            <a href=""></a>
+            <a style="width: 56px; height: 48px;"  href=""></a>
+            <a href=""></a>
+            <a href=""></a>
+        </div>
+    </div>
+    <!-- 轮播图 -->
+    <div class="show" id="show">
+       <ul class="img">
+           <li class="pic" > <img src="https://s.pc.qq.com/guanjia/images/d0/6b/d06b79df5abb19dae06f41b315dc3fcd.png" alt="">
+           </li>
+           <li class="pic"> <img  src="https://s.pc.qq.com/guanjia/images/f0/86/f0861ec4ab3763dacbe155c5a2f52fc4.jpg" alt=""> 
+           </li>
+           <li class="pic" ><img   src="https://pc1.gtimg.com/guanjia/images/74/97/74971fbca6bafce9917cdd9c5a6e0378.jpg" alt="">
+           </li>
+
+       </ul>
+        
+        <ul class="point">
+            <li> </li>
+            <li ></li>
+            <li ></li> 
+        </ul>
+        <div class="download">
+           
+        </div>
+        <div class="download-list">
+            <span>最新体验版：V13.6 <a href="">查看详情</a> <a href="">下载「最新体验版」</a></span>
+        </div>
+    </div>
+
+    <div class="three">
+         <a href="">
+             <img style="width: 24px; height: 36px;"  src="https://pc2.gtimg.com/guanjia/images/aa/ff/aaff3b5fd16791a8ff566f8ca26e4fc0.png" alt="">
+         </a>
+         <a href="">
+             <img style="width: 36px; height: 36px;"  src="https://pc2.gtimg.com/guanjia/images/43/84/43845570e972e119addd7f2b5456f752.png" alt="">
+         </a>
+         <a href="">
+             <img style="width: 41px; height: 41px;"  src="https://pc2.gtimg.com/guanjia/images/36/81/368119ea79e3f0cb092a85b06ded3fc1.png" alt="">
+         </a>
+         <a href="">
+             <img style="width: 37px; height: 37px;" src="https://pc2.gtimg.com/guanjia/images/2e/35/2e3528c622336b78a12ded50ae657b59.png" alt="">
+         </a>
+         <a href="">
+             <img style="width: 27px; height: 36px;" src="https://pc2.gtimg.com/guanjia/images/9a/4f/9a4ffcf651d70d742cadd9b11bcd3fed.png" alt="">
+         </a>
+         <a href="">
+             <img style="width: 78px; height: 36px;" src="https://pc2.gtimg.com/guanjia/images/2e/39/2e395197c1bda3fb3254bb322d068d5d.png" alt="">
+         </a>
+         <a href="">
+             <img style="width: 60px; height: 36px;" src="https://pc2.gtimg.com/guanjia/images/58/70/58708806dbaf2d1f87cba072899eefa8.png" alt="">
+         </a>
+         <a href="">
+             <img style="width: 54px; height: 36px;" src="https://pc2.gtimg.com/guanjia/images/c1/96/c196993dab8c5889335b83ac49a9e0c2.png" alt="">
+         </a>
+         <a href="">
+             <img style="width: 136px; height: 36px;"  src="https://pc2.gtimg.com/guanjia/images/0c/0a/0c0ac8b1d737849c98a22d99005ace15.png" alt="">
+         </a>
+         <a href="">
+             <img style="width: 84px; height: 42px;" src="https://pc2.gtimg.com/guanjia/images/67/38/6738b6136a6e4e79b5176aaf06fa9553.png" alt="">
+         </a>
+    </div>
+
+    <div class="four">
+        <span class="line"></span>
+         <span class="txt">腾讯安全系列产品参与的国际认证与安全协会</span>         
+         <span class="line"></span>                 
+    </div>
+
+    <div class="block">
+        <div>
+            <div>安全热点</div>
+            <img style="width: 260px; height: 170px;"  src="https://pc1.gtimg.com/guanjia/images/11/83/1183e9a6548c07aabb56f950ff8114b2.png" alt="">
+            <p>下载管家 「远程办公工具包」一键安装</p>
+            <ul>
+                <li >宝塔面板发布紧急安全更新，腾讯安全全面检测</li>
+                <li>PyPI 官方仓库遭request恶意包投毒，攻击行为严重威胁linux服务器安全</li>
+                <li>数万台MSSQL服务器遭爆破入侵，已沦为门罗币矿机</li>
+                <li>亡命徒（Outlaw）僵尸网络感染约2万台Linux服务器，企业注意及时清除</li>
+                <li class="bottom">查看更多 ></li>
+
+            </ul>
+            
+        </div>
+        <div>
+            <div>病毒木马</div>
+            <img style="width: 260px; height: 170px;" src="https://s.pc.qq.com/guanjia/images/71/5a/715ad167f20200224910543c3b2af700.jpg" alt="">
+            <p>SMB远程代码执行漏洞安全公告</p>
+            <ul>
+                <li>LaoXinWon携带两个勒索病毒样本，重复加密或增加解密难度</li>
+                <li>Linux服务器遭遇挖矿蠕虫攻击，已有数千台服务器中招</li>
+                <li>WatchBogMiner木马发起漏洞攻击，已控制上万台Linux服务器挖矿</li>
+                <li>Tellyouthepass勒索病毒利用永恒之蓝漏洞来袭，已有企业受害</li>
+                <li class="bottom">查看更多 ></li>
+            </ul>
+            
+        </div>
+        <div>
+            <div>最新活动</div>
+            <img style="width: 260px; height: 170px;" src="https://pc1.gtimg.com/guanjia/images/44/17/4417835fc680cde2053f04df1891d185.jpg" alt="">
+            <p>精选云安全产品，限时5折起优惠</p>
+            <ul>
+                <li>【重磅开课】腾讯产业安全公开课</li>
+                <li>文档守护者3.0上线，青春无惧丢失</li>
+                <li>管家提示勿忽视，电脑安全有保障</li>
+                <li>非物质文化遗产——24节气壁纸全集</li>
+                <li class="bottom">查看更多 ></li>
+            </ul>
+           
+        </div>
+        <div>
+            <div>产品动态</div>
+            <img style="width: 260px; height: 170px;" src="https://pc1.gtimg.com/guanjia/images/63/d9/63d962f6dd1087fc322f31bb6f737788.png" alt="">
+            <p>腾讯电脑管家小团队版正式发布!</p>
+            <ul>
+                <li>用权限雷达拒绝弹窗，眼不见心不烦</li>
+                <li>Win10升级工具，全面优化升级体验</li>
+                <li>电脑管家12.15正式版下载入口</li>
+                <li>腾讯电脑管家英文版入口</li>
+                <li class="bottom">查看更多 ></li> 
+            </ul>
+        </div>
+    </div>
+
+    <div class="func-title"> 产品功能-安全防护</div>
+    <div class="func-list">
+        <div>
+            <img src="https://s.pc.qq.com/guanjia/images/1c/cf/1ccf3334e7a5092934e96fe0fb983bf9.png" alt="">
+            <p class="func-name">首页体检</p>
+            <p class="func-desc">一键进行电脑全面检测，远离安全风险，轻松保持电脑健康</p>
+        </div>
+        <div>
+            <img src="https://s.pc.qq.com/guanjia/images/09/ec/09ec6123b95bae5a3d11c507bc84910e.png" alt="">
+            <p class="func-name">病毒查杀</p>
+            <p class="func-desc">自研杀毒引擎，能力领先国际屡获国际评测认证，荣耀加冕</p>
+        </div>
+        <div>
+            <img src="https://s.pc.qq.com/guanjia/images/2a/35/2a357752d595b99014b4dcc14140bfc7.png" alt="">
+            <p class="func-name">漏洞修复</p>
+            <p class="func-desc">专业检测系统漏洞，提供及时有效的修复方案</p>
+        </div>
+        <div>
+            <img src="https://s.pc.qq.com/guanjia/images/5f/53/5f539d53817ce276c76108a41a581fb3.png" alt="">
+            <p class="func-name">主动防御</p>
+            <p class="func-desc">17层防护，全面监控系统风险，彻底拦截恶意攻击</p>
+        </div>
+        <div>
+            <img src="https://s.pc.qq.com/guanjia/images/18/ef/18ef31d701bf95f753a4c598f4e29258.png" alt="">
+            <p class="func-name">勒索病毒防御</p>
+            <p class="func-desc">全网病毒监控，从源头拦截勒索病毒，保护用户电脑安全</p>
+        </div>
+        <div>
+            <img src="https://s.pc.qq.com/guanjia/images/2a/dc/2adc9d46e44a34b11eed146f48655831.png" alt="">
+            <p class="func-name">系统急救箱</p>
+            <p class="func-desc">深入系统底层，全方位深度扫描，彻底查杀顽固病毒</p>
+        </div>
+    </div>
+
+    <div class="func-titletwo"> 产品功能-管理效率</div>
+    <div class="manage-car">
+        <div>
+            <img src="https://s.pc.qq.com/pc/images/b1/1b/b11b689b9c7c1439e53d9f5dc5506c23.png" alt="">
+            <p class="manage-name">垃圾清理</p>
+            <p class="manage-desc">极致清理，流畅如新</p>
+        </div>
+        <div>
+            <img src="https://s.pc.qq.com/pc/images/36/e3/36e391ef0a353d803dacc29d21241c86.png" alt="">
+            <p class="manage-name">电脑加速</p>
+            <p class="manage-desc">一键加速，游戏快人一步</p>
+        </div>
+        <div>
+            <img src="https://s.pc.qq.com/pc/images/7d/67/7d67c836de74819e23a7a578a72f4bb7.png" alt="">
+            <p class="manage-name" >软件管理</p>
+            <p class="manage-desc">软件升级、卸载、拦截轻松搞定</p>
+        </div>
+        <div>
+            <img src="https://s.pc.qq.com/pc/images/cb/c3/cbc32a995c04fb2b491b8788465b2681.png" alt="">
+            <p class="manage-name" >工具箱</p>
+            <p class="manage-desc">集合众多电脑实用工具</p>
+        </div>
+        <div>
+            <img src="https://s.pc.qq.com/pc/images/89/30/89303c4d73a7c02a44dc6d40b7e8d7aa.png" alt="">
+            <p class="manage-name" >桌面整理</p>
+            <p class="manage-desc">一键整理，桌面井井有条</p>
+        </div>
+        <div style="margin-left: 0px;">
+            <img src="https://s.pc.qq.com/pc/images/99/d0/99d0eb1b2062c428c30a69ef93c5d88b.png" alt="">
+            <p class="manage-name">手游助手</p>
+            <p class="manage-desc">电脑玩手游，大屏更爽快</p>
+        </div>
+    </div>
+
+    <div class="news">
+        <div class="title">|&nbsp&nbsp电脑诊所</div>
+        <div class="sortable">
+            <a href="">【软件硬件】新装宽带设置路由器</a>
+            <a href="">【软件硬件】无法修改分辨率</a>
+            <a href="">【软件硬件】使用系统的虚拟键盘</a>
+            <a href="">【软件硬件】可用内存与实际内存不一致</a>
+            <a href="">【系统问题】无法修改系统时间</a>
+            <a href="">【系统问题】提示“d3d***.dll”丢失</a>
+            <a href="">【系统问题】Win10自带的清理工具</a>
+            <a href="">【系统问题】Windows 10禁止鼠标唤醒电脑</a>
+        </div>    
+    </div>
+    <div class="main-gray">
+        <div class="hzhb">
+        
+            <ul>
+                <li>
+                    <h3 style="width: 56px; height: 26px;line-height: 26px; color: gray; font-size: 14px; margin: 0px 5px 0px 0px;">合作伙伴</h3>
+                </li>
+                <li>
+                    <img src="https://pc1.gtimg.com/act/act/images/9740a782c4cfe45829470b91e6bb84b7.png" alt="">
+                </li>
+                <li>
+                    <img src="https://pc1.gtimg.com/act/act/images/694dbde5caf6786c077e67eb68a6a3ca.png" alt="">
+                </li>
+                <li>
+                    <img src="https://pc1.gtimg.com/act/act/images/655e0f14766f889645266aa0db92b80c.png" alt="">
+                </li>
+                <li>
+                    <img src="https://pc1.gtimg.com/act/act/images/b71cef3b66cb357a7bcefad72321bdf1.png" alt="">
+                </li>
+                <li>
+                    <img src="https://pc1.gtimg.com/act/act/images/e6dbc6ae846b876fbde6c722c9b8c3f0.png" alt="">
+                </li>
+                <li>
+                    <img src="https://s.pc.qq.com/pc/images/21/35/213530567d63b50a31796ec12205f0f1.png" alt="">
+                </li>
+                <li>
+                    <img src="https://pc1.gtimg.com/act/act/images/a23db98824d6f8873e70441c073a0dca.png" alt="">
+                </li>
+                <li>
+                    <img src="https://s.pc.qq.com/pc/images/26/d3/26d3457e3a6d9129bd3ff39c3d7d8722.png" alt="">
+                </li>
+                <li>
+                    <img src="https://pc1.gtimg.com/guanjia/images/2f/bc/2fbc328c5863c7f48e6c415e263b0171.png" alt="">
+                </li>
+                <a href="">合作申请 >></a>
+            </ul>
+        </div>
+        <div class="link">
+            <h3 style="width: 56px; height: 26px;line-height: 26px; color: gray; font-size: 14px; margin: 0px 5px 0px 0px;" >友情链接</h3>
+            <ul>
+                <li>搜狗下载</li>
+                <li>蓝钻</li>
+                <li>腾讯课堂</li>
+                <li>腾讯手机管家</li>
+                <li>安卓手机软件</li>
+                <li>腾讯视频</li>
+                <li>应用宝</li>
+                <li>腾讯网 </li>
+                <li>腾讯软件中心</li>
+                <li>腾爱•糖大夫</li>
+                <li>腾讯云</li>
+                <li>QQ音乐</li>
+                <li>iTools 助手</li>
+                <li>全民WIFI</li>
+                <li>应用汇</li>
+                <li>企业微信</li>
+                <li>QQ空间手机版</li>
+                <li>腾讯微云</li>
+                <li>亿智蘑菇</li>
+                <li>来电</li>
+                <li>腾讯文档</li>
+                <li>腾讯安全服务平台</li>
+                <li>腾讯企业安全</li>
+                <li>腾讯网游加速器</li>
+                <li>软件管理</li>
+                <li>广点通</li>
+                <li>Global</li>
+            </ul>
+        </div>
+        <div class="footer">
+            <p>
+                <a href="">腾讯公司</a>
+                <a href="">|&nbsp; 版权所有</a>
+                <a href="">|&nbsp; 市场合作</a>
+                <a href="">|&nbsp;  关于管家</a>
+            </p>
+            <p class="copyright">Copyright © 1998 - 2020 Tencent. All Rights Reserved.</p>
+        </div>
+    </div>
+    <script>
+// 轮播图淡入淡出
+        var Image=2;
+        var timer=setInterval(function(){
+            $(".pic").eq(Image).children().fadeOut(2000);
+            Image--;
+            if(Image<0){
+                Image=2;
+            }
+            $(".pic").eq(Image).children().fadeIn(2000);
+        },2000)
+  
+// 阴影
+       $(".func-list").children().mouseenter(function(){
+           $(this).css({"bottom":"2px","boxShadow":"0px 0px 5px grey"});
+       })
+       $(".func-list").children().mouseleave(function(){
+           $(this).css({"bottom":"0px","boxShadow":"none"});
+       })
+       $(".manage-car").children().mouseenter(function(){
+           $(this).css({"bottom":"2px","boxShadow":"0px 0px 5px grey"});
+       })
+       $(".manage-car").children().mouseleave(function(){
+           $(this).css({"bottom":"0px","boxShadow":"none"});
+       })
+
+// 导航栏上边框事件
+       $(".header>ul").children().mouseenter(function(){
+           $(this).css("borderTop","2px solid  #2771fa");
+      
+       })
+       $(".header>ul").children().mouseleave(function(){
+           $(this).css("borderTop","none");
+           $(".header>ul>li").children().css("color","#333333");
+           $(".header>ul").children().eq(0).css({"color":"2871d5","borderTop":"2px solid  #2771fa"});
+       })
+
+// 图片边框
+       $(".block>div>img").mouseenter(function(){
+           $(this).css("border","3px solid  #2771fa ");
+       })
+       $(".block>div>img").mouseleave(function(){
+           $(this).css("border","none ");
+       })
+    </script>
+</body>
+</html>
